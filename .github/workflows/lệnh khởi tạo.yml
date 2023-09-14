@@ -1,4 +1,4 @@
-name: Đang khởi tạo 
+name: Đang khởi tạo VPS
 
 
 on: [push, workflow_dispatch]
