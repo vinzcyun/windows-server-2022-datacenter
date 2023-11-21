@@ -32,14 +32,20 @@ jobs:
 
     - name: Kích hoạt TS
 
+    - name: Đang bật Remote Desktop
+
+    - name: VPS đang sẵn sàng
+
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
 
-     run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+    - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
-     run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+    - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
-     run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+    - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
     - name: Đang tạo đường hầm với cổng 3389 (RDP)
 
       run: .\ngrok\ngrok.exe tcp 3389
+
+    - name: VPS đã dừng lại...
