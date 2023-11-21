@@ -40,6 +40,6 @@ jobs:
 
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
-    - name: Đã tạo thành công User: runneradmin\P@ssw0rd!
+    - name: Đã tạo thành công 
 
       run: .\ngrok\ngrok.exe tcp 3389
