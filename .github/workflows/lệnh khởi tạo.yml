@@ -40,6 +40,6 @@ jobs:
 
     - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
-    - name: Đang tạo đường hầm với cổng 3389 (RDP)
+    - name: Đã tạo thành công User: runneradmin\P@ssw0rd!
 
       run: .\ngrok\ngrok.exe tcp 3389
