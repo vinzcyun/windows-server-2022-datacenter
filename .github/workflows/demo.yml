@@ -34,15 +34,11 @@ jobs:
 
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server'-name "fDenyTSConnections" -Value 0
 
- # Bật các rule tường lửa cho Remote Desktop
-run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
+    - run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
-# Kích hoạt xác thực người dùng cho Remote Desktop
-run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
+    - run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
-# Tạo tài khoản người dùng "runneradmin" với mật khẩu
-run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
-
+    - run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
     - name: Đã tạo thành công 
 
