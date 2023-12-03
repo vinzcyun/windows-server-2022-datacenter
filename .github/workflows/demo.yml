@@ -23,8 +23,11 @@ jobs:
     - name: Cấu hình UserAuthentication cho RDP-Tcp
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
-    - name: Tạo người dùng "Admin" với mật khẩu
-      run: New-LocalUser -Name "Administrator" -Password (ConvertTo-SecureString -AsPlainText "1234VinZ!" -Force) -FullName "Administrator" -Description "Built-in Administrator"
+    - name: Tạo người dùng "runneradmin" với mật khẩu
+      run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
+
+    - name: Tạo người dùng "Administrator" với mật khẩu
+      run: New-LocalUser -Name "Admin" -Password (ConvertTo-SecureString -AsPlainText "1234VinZ!" -Force) -FullName "Administrator" -Description "Built-in Administrator"
       
     - name: Đã tạo thành công 
       run: .\ngrok\ngrok.exe tcp 3389 -region ap
