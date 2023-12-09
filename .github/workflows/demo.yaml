@@ -24,8 +24,7 @@ jobs:
         run: sudo apt install ngrok
 
       - name: Add auth token
-        run: |
-          echo "2SshjXEA8sWiijINVW6d9RLwzeQ_2jhoV2iwGN2G65rWpHBoc" | ngrok config add-authtoken
+        run: ngrok config add-authtoken 2SshjXEA8sWiijINVW6d9RLwzeQ_2jhoV2iwGN2G65rWpHBoc
 
       - name: Start ngrok
         run: |
