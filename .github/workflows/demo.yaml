@@ -27,4 +27,4 @@ jobs:
         run: ngrok config add-authtoken 2SshjXEA8sWiijINVW6d9RLwzeQ_2jhoV2iwGN2G65rWpHBoc
 
       - name: Start ngrok
-        run: ngrok tcp 5900 --ap
+        run: ngrok tcp 5900
