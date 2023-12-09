@@ -1,0 +1,23 @@
+name: Linux with ngrok
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Install ngrok
+        run: |
+          sudo apt update
+          sudo apt install ngrok
+
+      - name: Start ngrok
+        run: |
+          ngrok start -p 5900
