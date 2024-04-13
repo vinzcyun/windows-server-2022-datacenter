@@ -1,4 +1,4 @@
-name: Đang khởi tạo RDP
+name: Đang khởi tạo RDP trên GitHub Action
 
 on: [push, workflow_dispatch]
 
