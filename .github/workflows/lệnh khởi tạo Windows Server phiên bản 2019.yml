@@ -1,4 +1,4 @@
-name: Đang khởi tạo RDP trên GitHub Action
+name: Đang khởi tạo RDP Windows Server 2019
 
 on: [push, workflow_dispatch]
 
@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-2019
     steps:
     - name: Đang tải Ngrok cho Windows x64
-      run: Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip
+      run: Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
 
     - name: Đang giải nén
       run: Expand-Archive ngrok.zip
@@ -20,11 +20,11 @@ jobs:
     - name: Đang bật Remote Desktop 
       run: Enable-NetFirewallRule -DisplayGroup "Remote Desktop"
 
-    - name: Cấu hình lại UserAuthentication cho RDP-Tcp
+    - name: Cấu hình UserAuthentication cho RDP-Tcp
       run: Set-ItemProperty -Path 'HKLM:\System\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1
 
-    - name: Tạo người dùng và mật khẩu
+    - name: Tạo người dùng "runneradmin" với mật khẩu "P@ssw0rd!"
       run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
     - name: Đã tạo thành công 
-      run: .\ngrok\ngrok.exe tcp 3389 -region ap
+      run: .\ngrok\ngrok.exe tcp --region ap 3389
