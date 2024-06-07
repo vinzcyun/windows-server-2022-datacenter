@@ -7,7 +7,7 @@ jobs:
     runs-on: windows-2019
     steps:
     - name: Đang tải Ngrok cho Windows x64
-      run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+      run: Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip
 
     - name: Đang giải nén
       run: Expand-Archive ngrok.zip
