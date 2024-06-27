@@ -1,13 +1,13 @@
-name: Đang khởi tạo RDP Windows mới nhất 
+name: Đang khởi tạo RDP Windows Server 2019.
 
 on: [push, workflow_dispatch]
 
 jobs:
   build:
-    runs-on: windows-latest
+    runs-on: windows-2022
     steps:
     - name: Đang tải Ngrok cho Windows x64
-      run: Invoke-WebRequest https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-windows-amd64.zip -OutFile ngrok.zip
+      run: Invoke-WebRequest https://bin.equinox.io/c/bNyj1mQVY4c/ngrok-v3-stable-windows-amd64.zip -OutFile ngrok.zip
 
     - name: Đang giải nén
       run: Expand-Archive ngrok.zip
@@ -27,4 +27,4 @@ jobs:
       run: Set-LocalUser -Name "runneradmin" -Password (ConvertTo-SecureString -AsPlainText "P@ssw0rd!" -Force)
 
     - name: Đã tạo thành công 
-      run: .\ngrok\ngrok.exe tcp 3389 -region ap
+      run: .\ngrok\ngrok.exe tcp --region ap 3389
