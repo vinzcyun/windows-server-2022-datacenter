@@ -1,4 +1,4 @@
-name: Đang khởi tạo RDP Windows Server 2019
+name: Đang khởi tạo RDP Windows Server 2019.
 
 on: [push, workflow_dispatch]
 
