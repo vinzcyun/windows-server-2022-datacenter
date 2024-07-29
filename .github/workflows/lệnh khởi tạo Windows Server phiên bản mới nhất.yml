@@ -1,4 +1,4 @@
-name: Đang khởi tạo RDP Windows Server 2022.
+name: Đang khởi tạo RDP Windows Server 2022
 
 on: [push, workflow_dispatch]
 
